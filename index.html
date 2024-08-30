@@ -3,72 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODO List</title>
+    <title>Skeaty.lol</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f6f8fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
+            background-color: #2f3136; /* Discord dark background */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .profile-card {
+            background: #36393f;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 320px;
+            color: #dcddde;
+            text-align: center;
             padding: 20px;
-            position: relative;
+            border: 1px solid #2f3136; /* Border to give a card-like appearance */
         }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #fff;
-            border: 1px solid #d1d5da;
-            border-radius: 6px;
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            position: relative;
+
+        .profile-pic {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            margin: 0 auto 16px auto;
+            border: 3px solid #7289da; /* Discord blue border */
+            background: url('https://cdn.discordapp.com/avatars/628963286213197838/cd4a5b6fa17050eaf24c9d77bc37367c.webp?size=96') no-repeat center center;
+            background-size: cover;
         }
-        h1 {
-            font-size: 24px;
-            border-bottom: 2px solid #d1d5da;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            color: #333;
+
+        .username {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin: 10px 0;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #e1e4e8;
-            border-radius: 4px;
-        }
-        li.completed {
-            text-decoration: line-through;
-            color: #6a737d;
-        }
-        li.in-progress {
-            text-decoration: underline;
-            color: green;
-        }
-        .signature {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            font-size: 12px;
-            color: #6a737d;
+
+        .status {
+            font-size: 14px;
+            color: #b9bbbe;
+            margin-top: 4px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>TODO List</h1>
-        <ul>
-            <li class="in-progress"># Creating Visual Studio project</li>
-            <li class="in-progress"># Create VS Code executor</li>
-            <li># Have it save data here</li>
-            <li># ...</li>
-        </ul>
-        <div class="signature">
-            - SkyDash
-        </div>
+    <div class="profile-card">
+        <div class="profile-pic"></div>
+        <div class="username" id="username">skydash.</div>
+        <!-- <div class="status">Online</div> -->
     </div>
+
+    <script>
+        document.getElementById('username').addEventListener('click', function() {
+            const usernameText = this.innerText;
+            navigator.clipboard.writeText(usernameText).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        });
+    </script>
 </body>
 </html>
