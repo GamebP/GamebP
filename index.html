@@ -1,69 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skeaty.lol</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #2f3136; /* Discord dark background */
-            font-family: 'Arial', sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="description" content="Skydash Profile">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="SkyDash">
+  <title>Skeaty.lol</title>
+  <style>
+    body {
+      background-color: #15191f;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      gap: 3em;
+      overflow: hidden;
+      
+      height: 100vh;
+      width: 100vw;
+      
+      font-family: 'Montserrat', sans-serif;
+    }
 
-        .profile-card {
-            background: #36393f;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            width: 320px;
-            color: #dcddde;
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #2f3136; /* Border to give a card-like appearance */
-        }
+    .bg__gradient {
+      height: 800px;
+      width: 800px;
+      background-image: linear-gradient(90deg, #eb3434, #eb5e34, #eb8334, #eba434, #ebcc34, #ebeb34, #c3eb34, #89eb34, #58eb34, #34eb52, #34ebcc, #34d5eb, #34a8eb, #346beb, #3734eb, #7734eb, #a834eb, #eb34c3, #eb3489, #eb3461);
+      filter: blur(500px);
+      border-radius: 100%;
+      background-size: 1000% 100%;
+      
+      animation: gradient 10s infinite ease-out;
+      
+      position: absolute;
+      transform: translateX(-50%) translateY(-50%);
+      
+      z-index: 0;
+    }
 
-        .profile-pic {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            margin: 0 auto 16px auto;
-            border: 3px solid #7289da; /* Discord blue border */
-            background: url('https://cdn.discordapp.com/avatars/628963286213197838/cd4a5b6fa17050eaf24c9d77bc37367c.webp?size=96') no-repeat center center;
-            background-size: cover;
-        }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 100%; }
+    }
 
-        .username {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 8px;
-            cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
-        }
+    .card {
+      height: 350px;
+      width: 450px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: rgba(255, 255, 255, 0.5);
+      background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(21, 25, 31, 0%));
+      transition: all ease;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .status {
-            font-size: 14px;
-            color: #b9bbbe;
-            margin-top: 4px;
-        }
-    </style>
+    .card:hover {
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+      color: #fff;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .card:hover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      z-index: -1;
+    }
+
+    .profile-image {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 1em;
+      position: relative;
+      transition: box-shadow 0.3s ease;
+      box-shadow: 0 0 0 2px rgba(0, 255, 0, 0.6);
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .profile-image:hover {
+      box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.8);
+    }
+
+    .card h1,
+    .card p {
+      color: #fffff;
+      transition: color 0.3s ease;
+    }
+
+    @media only screen and (max-width: 600px) {
+      body {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="profile-card">
-        <div class="profile-pic"></div>
-        <div class="username" id="username">skydash.</div>
-        <!-- <div class="status">Online</div> -->
-    </div>
+  <div class="bg__gradient"></div>
 
-    <script>
-        document.getElementById('username').addEventListener('click', function() {
-            const usernameText = this.innerText;
-            navigator.clipboard.writeText(usernameText).catch(err => {
-                console.error('Failed to copy text: ', err);
-            });
-        });
-    </script>
+  <div class="card">
+    <div class="profile-image">
+      <img src="https://cdn.discordapp.com/avatars/628963286213197838/cd4a5b6fa17050eaf24c9d77bc37367c.webp?size=96" alt="Pfp">
+    </div>
+    <h1 style="color: rgb(176, 176, 176);">@skydash.</h1>
+    <p style="color: rgb(176, 176, 176);">628963286213197838</p>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/tilt.js@1.1.19/dest/tilt.jquery.js"></script>
+  <script>
+    const cursor = document.querySelector('.bg__gradient');
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    let cursorX = 0;
+    let cursorY = 0;
+
+    let speed = 0.01;
+
+    function animate() {
+      let distX = mouseX - cursorX;
+      let distY = mouseY - cursorY;
+
+      cursorX = cursorX + (distX * speed);
+      cursorY = cursorY + (distY * speed);
+
+      cursor.style.left = cursorX + 'px';
+      cursor.style.top = cursorY + 'px';
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    document.addEventListener('mousemove', (event) => {
+      mouseX = event.pageX;
+      mouseY = event.pageY;
+    });
+
+    (function($) {
+      "use strict";
+
+      $(".card").tilt({
+        maxTilt: 30,
+        perspective: 1500,
+        easing: "cubic-bezier(.03,.98,.52,.99)",
+        speed: 500,
+        glare: false,
+        maxGlare: 0.2,
+        scale: 1.05
+      });
+      
+    }(jQuery));
+  </script>
 </body>
 </html>
