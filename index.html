@@ -1,1 +1,67 @@
-ovt on top lil gang member
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skeaty.lol</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/open-props">
+  <style>
+    /* SASS pārveidots uz CSS */
+    :root {
+      --cr-white: hsl(0, 0%, 100%);
+      --cr-black: hsl(0, 0%, 0%);
+      --cr-red-400: var(--red-9);
+    }
+    
+    /* Restartēt */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+    }
+    
+    body.page {
+      background-color: var(--cr-black);
+      color: var(--cr-white);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    
+    main.main.page__main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    
+    h1.main__title {
+      font-size: clamp(1.5rem, 8vw, 5rem);
+      color: var(--cr-white);
+    }
+    
+    .main__word {
+      color: var(--cr-red-400);
+    }
+  </style>
+</head>
+<body class="page">
+  <main class="main page__main">
+    <h1 class="main__title">Es šeit 
+      <span class="main__word" id="typed"></span>.
+    </h1>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
+  <script>
+    const typed = new Typed("#typed", {
+      strings: ["Mācos", "Špikoju", "Domāju", "Norakstu visu"],
+      typeSpeed: 100,
+      backSpeed: 150,
+      backDelay: 2000,
+      loop: true
+    });
+  </script>
+</body>
+</html>
