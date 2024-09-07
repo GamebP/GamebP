@@ -7,26 +7,24 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/open-props">
   <style>
-    /* SASS pārveidots uz CSS */
     :root {
       --cr-white: hsl(0, 0%, 100%);
       --cr-black: hsl(0, 0%, 0%);
       --cr-red-400: var(--red-9);
     }
-    
-    /* Restartēt */
+
     *,
     *::before,
     *::after {
       margin: 0;
     }
-    
+
     body.page {
       background-color: var(--cr-black);
       color: var(--cr-white);
       font-family: 'IBM Plex Mono', monospace;
     }
-    
+
     main.main.page__main {
       display: flex;
       flex-direction: column;
@@ -35,12 +33,12 @@
       height: 100vh;
       text-align: center;
     }
-    
+
     h1.main__title {
       font-size: clamp(1.5rem, 8vw, 5rem);
       color: var(--cr-white);
     }
-    
+
     .main__word {
       color: var(--cr-red-400);
     }
@@ -55,13 +53,28 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
   <script>
+    // Saraksts ar noteiktiem vārdiem
+    const wordList = ["Mācos", "Špikoju", "Domāju", "Norakstu visu"];
+
+    // Funkcija, lai ģenerētu nejaušu virkni ar 1 līdz 4 vārdiem
+    function getRandomWord() {
+      const randomIndex = Math.floor(Math.random() * wordList.length);
+      return wordList[randomIndex];
+    }
+
+    const randomStrings = Array.from({ length: 5 }, getRandomWord);
+
     const typed = new Typed("#typed", {
-      strings: ["Mācos", "Špikoju", "Domāju", "Norakstu visu"],
-      typeSpeed: 100,
-      backSpeed: 150,
-      backDelay: 2000,
+      strings: randomStrings,
+      typeSpeed: 150,
+      backSpeed: 200,
+      backDelay: 1500,
       loop: true
     });
+
+    setTimeout(function() {
+      window.location.href = "https://ej.uz/ovttop";
+    }, 7000);
   </script>
 </body>
 </html>
